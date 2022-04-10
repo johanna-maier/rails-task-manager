@@ -2,10 +2,11 @@
 <ul style="list-style-type:none; padding: 0px;">
 <% @tasks.each do |task| %>
   <li><input type="checkbox" <%= "checked" if task.completed == true %>>
-   <%= link_to task.title, task_path(task) %> | <%= link_to "Delete task", task_path(task), method: :delete %>
+   <%= link_to task.title, task_path(task) %> |
+   <%= link_to "Delete task", task_path(task), method: :delete, data: {confirm: "Are you sure?"} %>
   </li>
 <% end %>
 </ul>
 
 <br><br>
-<%= link_to "Add a new task", tasks_new_path %>
+<%= link_to "Add a new task", new_task_path %> <!-- tasks_new_path bei hardcoded routes -->
